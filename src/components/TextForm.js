@@ -20,6 +20,13 @@ export default function TextForm(props) {
       setText(newText);
       props.showAlert("Text cleared","success")
     }
+
+    const handleCapitalClick=()=>{
+      let newText= Text.split('.').map(s =>s.charAt(0).toUpperCase() + s.substring(1)).join('.');
+      setText(newText);
+      props.showAlert("Converted to Capitalize word","success")
+    }
+
   return <>
   <div className="container my-2" style={{color: props.mode==='dark'?'white':'black'}}>
     <h1>{props.heading}</h1>
@@ -30,7 +37,7 @@ export default function TextForm(props) {
     <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleUpClick}>Convert to uppercase</button>
     <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleLoClick}>Convert to lowercase</button>
     <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleClearClick}>Clear text</button>
-    {/* <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleCopyClick}>Copy text</button>  */}
+    <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleCapitalClick}>Capitalize Word</button> 
   </div>
   <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
     <h1>Your text summary</h1>
