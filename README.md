@@ -15,3 +15,7 @@ This is a basic frontend static website. Any Reactjs beginner can contibute to t
 # What is Hacktoberfest?
 
 A month-long celebration from October 1st - 31st sponsored by Digital Ocean and GitHub to get people involved in Open Source. Create your pull request to any public repository on GitHub and contribute to the open source developer community.
+
+#How to contribute
+
+Read the guideline given in the CONTRIBUTING.md file and you are good to go
