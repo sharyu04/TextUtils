@@ -1,5 +1,12 @@
 import React,{useState} from 'react';
 
+const capitaliseFirstAlphabet = (string) => {
+  const firstAlphabetIndex = string.split("").findIndex((char) => char !== " ");
+
+  return string.slice(0, firstAlphabetIndex) + string.charAt(firstAlphabetIndex).toUpperCase() + string.slice(firstAlphabetIndex + 1);
+};
+
+
 export default function TextForm(props) {
     const [Text, setText] = useState("Enter text here");
     const handleOnChange = (event) =>{
@@ -15,6 +22,11 @@ export default function TextForm(props) {
       setText(newText);
       props.showAlert("Converted to lowercase","success")
     }
+    const capitaliseGrammarWise = () => {
+      const newText = Text.split(".").map(subString => capitaliseFirstAlphabet(subString)).join(".");
+      setText(newText);
+      props.showAlert("Capitalised grammar-wise", "success")
+    }
     const handleClearClick = () =>{
       let newText = "";
       setText(newText);
@@ -29,6 +41,7 @@ export default function TextForm(props) {
     </div>
     <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleUpClick}>Convert to uppercase</button>
     <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleLoClick}>Convert to lowercase</button>
+    <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={capitaliseGrammarWise}>Capitalise grammar-wise</button>
     <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleClearClick}>Clear text</button>
     {/* <button disabled={Text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleCopyClick}>Copy text</button>  */}
   </div>
