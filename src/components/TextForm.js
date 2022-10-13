@@ -25,7 +25,7 @@ export default function TextForm(props) {
     const capitaliseGrammarWise = () => {
       const newText = Text.split(".").map(subString => capitaliseFirstAlphabet(subString)).join(".");
       setText(newText);
-      props.showAlert("Capitalised grammar-wise, success")
+      props.showAlert("Capitalised grammar-wise", "success")
     }
     const handleClearClick = () =>{
       let newText = "";
