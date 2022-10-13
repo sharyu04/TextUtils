@@ -22,10 +22,9 @@ export default function TextForm(props) {
     }
 
     const handleCapitalClick=()=>{
-      let newText= Text.split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+      let newText= Text.split('.').map(s =>s.charAt(0).toUpperCase() + s.substring(1)).join('.');
       setText(newText);
       props.showAlert("Converted to Capitalize word","success")
-
     }
 
   return <>
